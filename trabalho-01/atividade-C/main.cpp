@@ -7,17 +7,17 @@
 using namespace std;
 
 void decimalToHexa(int value) {
-    cout << showbase << uppercase << hex << value << endl;
+    cout << value << " em hexa: " << showbase << hex << value << endl;
 }
 
 void hexaToDecimal(string value) {
     int decimalValue;
     sscanf(value.c_str(), "%x", &decimalValue);
-    cout << decimalValue;
+    cout << value << " em decimal: " << decimalValue << endl;
 }
 
 bool isHexa(string value) {
-    if (value[0] == '0' && value[1] == 'x') {
+    if (value[0] == '0' && tolower(value[1]) == 'x') {
        return true;
     } else {
         return false;
@@ -32,19 +32,19 @@ bool isValid(int value) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     while (true) {
         string value;
-        cout << "Digite um número em decimal ou hexa: ";
+        cout << "Digite um numero em decimal ou hexa: ";
         getline(cin, value);
-        
+
         if (isHexa(value)) {
             hexaToDecimal(value);
         } else {
             if (isValid(atoi(value.c_str()))) {
                 decimalToHexa(atoi(value.c_str()));
             } else {
-                return 0;
+                return EXIT_SUCCESS;
             }
         }
     }
