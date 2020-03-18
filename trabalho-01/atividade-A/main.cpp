@@ -6,7 +6,7 @@ int calculaPrimeiroNumero(int N) {
     return N % 3;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     int N;
     cout << "Digite o valor de N: ";
     cin >> N;
