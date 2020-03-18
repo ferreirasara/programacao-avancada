@@ -40,12 +40,28 @@ int main() {
     cout << "Numero de instancias: ";
     cin >> instanceNumber;
 
+    if (instanceNumber <= 0) {
+        cerr << "O numero de instancias deve ser maior que 0. Valor digitado: " << instanceNumber;
+        return EXIT_FAILURE;
+    }
+
     for (int i = 0; i < instanceNumber; i++) {
         int numberOfBlockTypes, desiredLength;
         cout << "Digite o numero de tipos de blocos: ";
         cin >> numberOfBlockTypes;
+
+        if (numberOfBlockTypes < 1 || numberOfBlockTypes > 25) {
+            cerr << "O numero de tipos de blocos deve estar entre 1 e 25. Valor digitado: " << numberOfBlockTypes;
+            return EXIT_FAILURE;
+        }
+
         cout << "Digite o comprimento desejado: ";
         cin >> desiredLength;
+
+        if (desiredLength < 1 || desiredLength > 1000000) {
+            cerr << "O comprimento desejado deve estar entre 1 e 1.000.000. Valor digitado: " << desiredLength;
+            return EXIT_FAILURE;
+        }
 
         int blockTypes[numberOfBlockTypes];
         cout << "Digite cada tipo de bloco: ";
