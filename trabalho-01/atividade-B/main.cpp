@@ -13,7 +13,7 @@ int main() {
     cin >> H;
 
     if (H < 1 || H > 1000) {
-        cerr << "O total de cachorros-quentes deve ser um numero entre 1 e 1000. Valor digitado: " << H;
+        cerr << "O total de cachorros-quentes deve ser um numero entre 1 e 1000. Valor digitado: " << H << endl;
         return EXIT_FAILURE;
     }
 
@@ -21,7 +21,7 @@ int main() {
     cin >> P;
 
     if (P < 1 || P > 1000) {
-        cerr << "O total de participantes deve ser um numero entre 1 e 1000. Valor digitado: " << P;
+        cerr << "O total de participantes deve ser um numero entre 1 e 1000. Valor digitado: " << P << endl;
         return EXIT_FAILURE;
     }
 
