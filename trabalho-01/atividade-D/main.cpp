@@ -24,7 +24,7 @@ int numberOfFibonaccis(int a, int b) {
 }
 
 bool isValid(int a, int b) {
-    if (a <= b && b <= 10100) {
+    if ((a > 0 && b > 0) && (a <= b && b <= 10100)) {
         return true;
     } else {
         return false;
@@ -33,7 +33,7 @@ bool isValid(int a, int b) {
 
 bool endOfEntry(int a, int b) {
     if (a == 0 && b == 0) {
-            return true;
+        return true;
     } else {
         return false;
     }
@@ -48,11 +48,14 @@ int main(int argc, char* argv[]) {
         cin >> b;
 
         if (endOfEntry(a, b)) {
-            return 0;
+            return EXIT_SUCCESS;
         }
         if (isValid(a, b)) {
             int total = numberOfFibonaccis(a, b);
-            cout << total << endl;
+            cout << "Total de numeros de Fibonacci: " << total << endl;
+        } else {
+            cerr << "Os numeros inicial e final devem estar entre 0 e 10100, e o numero inicial deve ser menor que o numero final." << endl;
+            return EXIT_FAILURE;
         }
     }
 }
