@@ -11,7 +11,7 @@ public:
     ContaCorrente(int numero, Cliente cliente) : Conta(numero, cliente) {}
     void aplicaJurosDiarios(int dias) {
         for (int i = 0; i < dias; ++i) {
-            _saldo += _saldo * 0.0001;
+            _saldo += _saldo * 0.00001;
         }
     }
 };
