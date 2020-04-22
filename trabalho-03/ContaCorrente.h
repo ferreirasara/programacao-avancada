@@ -8,6 +8,7 @@ using namespace std;
 
 class ContaCorrente : public Conta {
 public:
+    ContaCorrente() : Conta(0, NULL) {}
     ContaCorrente(int numero, Cliente* cliente) : Conta(numero, cliente) {}
     void aplicaJurosDiarios(int dias) {
         for (int i = 0; i < dias; ++i) {

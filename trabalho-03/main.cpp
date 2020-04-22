@@ -49,24 +49,16 @@ int main() {
     contaCliente1.extrato();
     contaCliente4.extrato();
 
-    // cout << endl << "EPATA 05" << endl;
-    // Cliente clienteTeste("TESTE");
-    // ContaCorrente contas[100];
-    // Ocorre um erro, pq a classe ContaCorrente não tem um construtor padrão
-    // Pode ser resolvido assim:
-    // ContaCorrente* contas[100];
-    // for (int i = 0; i < 100; ++i) {
-    //     contas[i] = new ContaCorrente(i + 1, clienteTeste);
-    // }
-    // delete contas;
+    // Nao era possivel criar o vetor, pois nao exitia um construtor padrao na classe.
+    // Depois de criar o construtor, foi possivel criar o vetor.
+    ContaCorrente vetorContasCorrente[100];
+    // No entanto, criar um vetor de objetos dessa maneira não é bom,
+    // pois vai alocar memória para 100 objetos, mesmo não usando todos eles.
+    // Uma maneira melhor:
+    ContaCorrente* vetorContasCorrenteMelhorado[100];
 
-    // cout << endl << "EPATA 06" << endl;
-    // Cliente clienteTeste("TESTE");
-    // Conta* contas[100];
-    // for (int i = 0; i < 100; ++i) {
-    //     contas[i] = new ContaCorrente(i + 1, clienteTeste);
-    // }
-    // delete contas;
+    // Nao e possivel instanciar objetos da classe Conta, pois a mesma possui um metodo virtual puro.
+    // Conta contas[100];
 
     return EXIT_SUCCESS;
 }
