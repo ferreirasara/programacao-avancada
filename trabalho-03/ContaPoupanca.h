@@ -8,7 +8,7 @@ using namespace std;
 
 class ContaPoupanca : public Conta {
 public:
-    ContaPoupanca(int numero, Cliente cliente) : Conta(numero, cliente) {}
+    ContaPoupanca(int numero, Cliente* cliente) : Conta(numero, cliente) {}
     void aplicaJurosDiarios(int dias) {
         for (int i = 0; i < dias; ++i) {
             _saldo += _saldo * 0.00008;
