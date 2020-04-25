@@ -35,8 +35,15 @@ int main() {
     Data dataTeste1(15, 4, 1999), dataTeste2(22, 11, 2020);
 
     Data dataAdicao = dataTeste1 + dataTeste2;
+    Data dataSubtracao = dataTeste2 - dataTeste1;
 
     dataAdicao.imprime();
+    dataSubtracao.imprime();
+
+    dataTeste1.~Data();
+    dataTeste2.~Data();
+    dataAdicao.~Data();
+    dataSubtracao.~Data();
 
     return EXIT_SUCCESS;
 }

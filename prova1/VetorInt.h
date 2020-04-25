@@ -7,10 +7,12 @@
 
 class VetorInt : public Imprimivel {
 public:
-    VetorInt(int tamanho) : _tamanho(tamanho) { 
-        _vetor = (int *) malloc(tamanho * sizeof(int));
-        for (int i = 0; i < _tamanho; ++i) {
-            _vetor[i] = rand() % 10;
+    VetorInt(int tamanho) : _tamanho(tamanho) {
+        if (_tamanho > 0) {
+            _vetor = (int *) malloc(tamanho * sizeof(int));
+            for (int i = 0; i < _tamanho; ++i) {
+                _vetor[i] = rand() % 10;
+            }
         }
     }
     void imprime() {
