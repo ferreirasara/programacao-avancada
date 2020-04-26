@@ -15,43 +15,31 @@ public:
         _vetor[2] = ano;
     }
     Data operator+(const Data &outra) {
-        Data dataNova(_vetor[0] + outra._vetor[0],
-                      _vetor[1] + outra._vetor[1],
-                      _vetor[2] + outra._vetor[2]);
+        VetorInt vetor = VetorInt::operator+(outra);
+        Data dataNova(vetor[0], vetor[1], vetor[2]);
         dataNova.corrigeData();
         return dataNova;
     }
     Data operator-(const Data &outra) {
-        Data dataNova(_vetor[0] - outra._vetor[0],
-                      _vetor[1] - outra._vetor[1],
-                      _vetor[2] - outra._vetor[2]);
+        VetorInt vetor = VetorInt::operator-(outra);
+        Data dataNova(vetor[0], vetor[1], vetor[2]);
         dataNova.corrigeData();
         return dataNova;
     }
-    bool operator==(const Data &outra) {
-        return _vetor[0] == outra._vetor[0] && _vetor[1] == outra._vetor[1] && _vetor[2] == outra._vetor[2];
-    }
     void operator+=(const Data &outra) {
-        _vetor[0] += outra._vetor[0];
-        _vetor[1] += outra._vetor[1];
-        _vetor[2] += outra._vetor[2];
+        VetorInt::operator+=(outra);
         this->corrigeData();
     }
     void operator-=(const Data &outra) {
-        _vetor[0] -= outra._vetor[0];
-        _vetor[1] -= outra._vetor[1];
-        _vetor[2] -= outra._vetor[2];
+        VetorInt::operator-=(outra);
         this->corrigeData();
     }
-    bool operator!=(const Data &outra) { return !operator==(outra); }
-    int operator[](const int posicao) { return _vetor[posicao]; }
-    int operator()(const int posicao) { return _vetor[posicao]; }
-    bool dataValida() {
-        return diaValido() && mesValido();
-    }
-    bool mesValido() {
-        return _vetor[1] <= 12 ? true : false;
-    }
+    bool operator==(Data &outra) { return VetorInt::operator==(outra); }
+    bool operator!=(Data &outra) { return VetorInt::operator!=(outra); }
+    int operator[](const int posicao) { return VetorInt::operator[](posicao); }
+    int operator()(const int posicao) { return VetorInt::operator()(posicao); }
+    bool dataValida() { return diaValido() && mesValido(); }
+    bool mesValido() { return _vetor[1] <= 12 ? true : false; }
     bool diaValido() {
         if (_vetor[1] == 2) {
             return _vetor[0] <= 28 ? true : false;

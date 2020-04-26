@@ -118,18 +118,10 @@ public:
             return true;
         }
     }
-    bool operator!=(const VetorInt &outro) {
-        return !operator==(outro);
-    }
-    int operator[](const int posicao) {
-        return _vetor[posicao];
-    }
-    int operator()(const int posicao) {
-        return _vetor[posicao];
-    }
-    ~VetorInt() {
-        delete _vetor;
-    }
+    bool operator!=(const VetorInt &outro) { return !operator==(outro); }
+    int operator[](const int posicao) { return _vetor[posicao]; }
+    int operator()(const int posicao) { return _vetor[posicao]; }
+    ~VetorInt() { delete _vetor; }
 protected:
     int _tamanho;
     int* _vetor;
