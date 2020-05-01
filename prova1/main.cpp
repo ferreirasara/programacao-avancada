@@ -66,5 +66,16 @@ int main() {
     dataAdicao.~Data();
     dataSubtracao.~Data();
 
+    cout << "\n++++++++++++++++++++ TESTE - VETOR DE DATAS ++++++++++++++++++++\n";
+    Data* vetorDatas[1000];
+
+    for (int i = 0; i < 31; ++i) {
+        vetorDatas[i] = new Data(i + 1, 1, 2020);
+    }
+
+    for (int i = 0; i < 31; ++i) {
+        vetorDatas[i]->imprime();
+    }
+
     return EXIT_SUCCESS;
 }

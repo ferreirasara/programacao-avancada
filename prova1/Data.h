@@ -3,6 +3,7 @@
 
 #include "VetorInt.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ public:
         _vetor[0] = dia;
         _vetor[1] = mes;
         _vetor[2] = ano;
+        this->corrigeData();
     }
     Data operator+(const Data &outra) {
         VetorInt vetor = VetorInt::operator+(outra);
@@ -43,7 +45,7 @@ public:
     bool diaValido() {
         if (_vetor[1] == 2) {
             return _vetor[0] <= 28 ? true : false;
-        } else if (_vetor[0] == 1 || _vetor[0] == 3 || _vetor[0] == 5 || _vetor[0] == 7 || _vetor[0] == 8 || _vetor[0] == 10 || _vetor[0] == 12) {
+        } else if (_vetor[1] == 1 || _vetor[1] == 3 || _vetor[1] == 5 || _vetor[1] == 7 || _vetor[1] == 8 || _vetor[1] == 10 || _vetor[1] == 12) {
             return _vetor[0] <= 31 ? true : false;
         } else {
             return _vetor[0] <= 30 ? true : false;
@@ -63,7 +65,7 @@ public:
         if (_vetor[1] == 2) {
             _vetor[0] = _vetor[0] - 28;
             _vetor[1]++; 
-        } else if (_vetor[0] == 1 || _vetor[0] == 3 || _vetor[0] == 5 || _vetor[0] == 7 || _vetor[0] == 8 || _vetor[0] == 10 || _vetor[0] == 12) {
+        } else if (_vetor[1] == 1 || _vetor[1] == 3 || _vetor[1] == 5 || _vetor[1] == 7 || _vetor[1] == 8 || _vetor[1] == 10 || _vetor[1] == 12) {
             _vetor[0] = _vetor[0] - 31;
             _vetor[1]++;
         } else {
@@ -71,7 +73,9 @@ public:
             _vetor[1]++;
         }
     }
-    void imprime() { cout << _vetor[0] << "/" << _vetor[1] << "/" << _vetor[2] << endl; }
+    void imprime() { cout << setw(2) << setfill('0') << _vetor[0] << "/" 
+                          << setw(2) << setfill('0') << _vetor[1] << "/"
+                          << setw(4) << setfill('0') << _vetor[2] << endl; }
 };
 
 #endif
