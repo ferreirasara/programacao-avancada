@@ -7,6 +7,7 @@ class Categoria {
 public:
     Categoria(std::string nome) : _nome(nome) {}
     std::string getNome() { return _nome; }
+    ~Categoria() {};
 private:
     std::string _nome;
 };

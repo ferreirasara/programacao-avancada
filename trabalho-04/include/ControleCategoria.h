@@ -5,7 +5,6 @@
 #include <iostream>
 #include <list>
 #include "InterfaceSGDB.h"
-#include "InterfaceUsuario.h"
 #include "Categoria.h"
 
 class ControleCategoria {
@@ -21,10 +20,10 @@ public:
         Categoria categoria(nome);
         interfaceSGDB->excluirCategoria(&categoria);
     }
-    void editarCategoria(std::string nome) {
+    void editarCategoria(std::string nome, std::string novoNome) {
         InterfaceSGDB* interfaceSGDB;
         Categoria categoria(nome);
-        interfaceSGDB->editarCategoria(&categoria);
+        interfaceSGDB->editarCategoria(&categoria, novoNome);
     }
     std::list<Categoria> retornarListaCategorias() {
         InterfaceSGDB* interfaceSGDB;
