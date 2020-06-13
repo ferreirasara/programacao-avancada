@@ -15,6 +15,9 @@ public:
         _mes = atoi(data.substr(3,2).c_str());
         _ano = atoi(data.substr(6,4).c_str());
     }
+    int getDia() { return _dia; }
+    int getMes() { return _mes; }
+    int getAno() { return _ano; }
     bool operator>=(Data* outra) {
         if (_ano == outra->_ano) {
             if (_mes == outra->_mes) {

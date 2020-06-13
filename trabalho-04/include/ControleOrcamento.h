@@ -2,7 +2,6 @@
 #define _CONTROLE_ORCAMENTO_
 
 #include <string>
-#include <iostream>
 #include <list>
 #include "InterfaceSGDB.h"
 #include "Orcamento.h"

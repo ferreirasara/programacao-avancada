@@ -14,6 +14,7 @@ public:
         std::cout << "Escolha uma opcao:" << std::endl;
         std::cout << "1. Gerenciar Categorias" << std::endl;
         std::cout << "2. Consultar Orcamento" << std::endl;
+        std::cout << "3. Relatorios" << std::endl;
         std::cout << ">: ";
         int opcao;
         std::cin >> opcao;
@@ -24,20 +25,29 @@ public:
         std::cout << std::endl << "Escolha uma opcao:" << std::endl;
         std::cout << "1. Adicionar Categoria" << std::endl;
         std::cout << "2. Excluir Categoria" << std::endl;
-        std::cout << "3. Editar Categoria" << std::endl;
+        std::cout << "3. Editar nome Categoria" << std::endl;
+        std::cout << "4. Editar orcamento Categoria" << std::endl;
         std::cout << ">: ";
         int opcao;
         std::cin >> opcao;
 
         return opcao;
     }
-    std::string adicionarCategoria() {
-        std::cout << std::endl << "Digite um nome para a categoria:" << std::endl;
+    std::string solicitarNomeCategoria() {
+        std::cout << std::endl << "Digite o nome da categoria:" << std::endl;
         std::cout << ">: ";
         std::string nome;
         std::cin >> nome;
 
         return nome;
+    }
+    double solicitarOrcamentoCategoria() {
+        std::cout << std::endl << "Digite o orcamento da categoria:" << std::endl;
+        std::cout << ">: ";
+        double orcamento;
+        std::cin >> orcamento;
+
+        return orcamento;
     }
     std::string excluirCategoria(std::list<Categoria> categorias) {
         std::cout << std::endl << "Categorias cadastradas:" << std::endl;
@@ -56,7 +66,7 @@ public:
         for (auto it = categorias.begin(); it != categorias.end(); it++) {
             std::cout << it->getNome() << std::endl;
         }
-        std::cout << "Qual categoria voce deseja editar?" << std::endl;
+        std::cout << "Qual categoria voce deseja editar o nome?" << std::endl;
         std::cout << ">: ";
         std::string nome;
         std::cin >> nome;
@@ -94,7 +104,34 @@ public:
 
         return dataInicial+"-"+dataFinal;
     }
+    int exibirSelecionarRelatorio() {
+        std::cout << std::endl << "Escolha uma opcao:" << std::endl;
+        std::cout << "1. Resumo dos gastos mensais por categoria" << std::endl;
+        std::cout << "2. Resumo dos gastos durante o período de um ano" << std::endl;
+        std::cout << "3. Ranking com os maiores gastos no ano" << std::endl;
+        std::cout << "4. Resumo das categorias que ultrapassaram o orcamento por mes" << std::endl;
+        std::cout << ">: ";
+        int opcao;
+        std::cin >> opcao;
 
+        return opcao;
+    }
+    std::string solicitarMesRelatorio() {
+        std::cout << std::endl << "Digite o mes e ano desejados no formato MM/AAAA:" << std::endl;
+        std::cout << ">:";
+        std::string mesAno;
+        std::cin >> mesAno;
+        
+        return mesAno;
+    }
+    std::string solicitarAnoRelatorio() {
+        std::cout << std::endl << "Digite o ano desejado no formato AAAA:" << std::endl;
+        std::cout << ">:";
+        std::string ano;
+        std::cin >> ano;
+        
+        return ano;
+    }
 };
 
 #endif

@@ -14,33 +14,43 @@ class InterfaceSGDB {
 public:
     InterfaceSGDB();
     void adicionarCategoria(Categoria* categoria) {
-        SGDB* sgdb;
-        sgdb->incluir("c", categoria->getNome());
+        SGDB* _sgdb;
+        _sgdb->incluir("c", categoria->getNome()+"-"+to_string(categoria->getOrcamentoTotal()));
     }
     void excluirCategoria(Categoria* categoria) {
-        SGDB* sgdb;
-        sgdb->excluir("c", categoria->getNome());
+        SGDB* _sgdb;
+        _sgdb->excluir("c", categoria->getNome());
     }
     void editarCategoria(Categoria* categoria, std::string novoNome) {
-        SGDB* sgdb;
-        sgdb->editar("c", categoria->getNome(), novoNome);
+        SGDB* _sgdb;
+        _sgdb->editar("c", categoria->getNome(), novoNome);
+    }
+    void editarCategoria(Categoria* categoria, double orcamentoTotal) {
+        SGDB* _sgdb;
+        _sgdb->editar("c", categoria->getNome(), categoria->getNome()+"-"+to_string(orcamentoTotal));
     }
     std::list<Categoria> retornarListaCategorias() {
+        SGDB* _sgdb;
         std::list<Categoria> categorias;
         std::list<std::string> dados;
-        SGDB* sgdb;
-        dados = sgdb->ler("c");
+        dados = _sgdb->ler("c");
+        
         for (auto it = dados.begin(); it != dados.end(); it++) {
-            Categoria c(*it);
+            std::size_t posicaoSeparador = (*it).find("-");
+            std::string nome = (*it).substr(0, posicaoSeparador);
+            double orcamento = atoi((*it).substr(posicaoSeparador+1, ((*it).length() - posicaoSeparador)).c_str());
+            Categoria c(nome, orcamento);
             categorias.push_back(c);
         }
+        
         return categorias;
     }
     std::list<Orcamento*> consultarOrcamento(Data* dataInicial, Data* dataFinal) {
+        SGDB* _sgdb;
         std::list<Orcamento*> orcamentos;
         std::list<std::string> dados;
-        SGDB* sgdb;
-        dados = sgdb->ler("o", dataInicial, dataFinal);
+        dados = _sgdb->ler("o", dataInicial, dataFinal);
+        
         for (auto it = dados.begin(); it != dados.end(); it++) {
             // Retorna as informacoes do orcamento. Ex: Mercado-04/06/2020-13:40-50.78-Descricao
             std::string linha = *it;

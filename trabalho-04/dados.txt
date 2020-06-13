@@ -1,6 +1,17 @@
-c-Feira
-o-Mercado-04/06/2020-13:40-50.78-Descricao0
-o-Mercado-12/06/2020-13:40-50.78-Descricao1
-o-Mercado-23/06/2020-13:40-50.78-Descricao2
-o-Mercado-01/06/2020-13:40-50.78-Descricao3
-o-Mercado-03/06/2020-13:40-50.78-Descricao4
+c-Roupas-200.00
+c-Combustivel-300.00
+c-Mercado-500.000000
+o-Mercado-04/06/2020-13:40-250.78-Compra do mes
+o-Mercado-12/06/2020-07:16-30.15-Bolacha
+o-Combustivel-15/06/2020-19:16-154.95-Combustivel
+o-Roupas-29/06/2020-20:53-400.53-Brusinha
+o-Mercado-01/06/2020-08:54-930.39- 
+o-Roupas-02/06/2020-08:54-89.49- 
+o-Mercado-03/06/2020-08:54-82.49- 
+o-Combustivel-04/06/2020-08:54-18.23- 
+o-Mercado-05/06/2020-08:54-19.43- 
+o-Mercado-06/06/2020-08:54-29.48- 
+o-Roupas-07/06/2020-08:54-92.38- 
+o-Roupas-08/06/2020-08:54-94.28- 
+o-Roupas-09/06/2020-08:54-23.56- 
+o-Mercado-10/06/2020-08:54-20.34- 

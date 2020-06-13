@@ -16,6 +16,10 @@ public:
                   << "RS$" << _valor << " - "
                   << "Obs: " << _descricao << std::endl;
     }
+    Categoria* getCategoria() { return _categoria; }
+    double getValor() { return _valor; }
+    Data* getData() { return _data; }
+    Hora* getHora() { return _hora; }
     ~Orcamento() {};
 private:
     std::string _descricao;
@@ -24,5 +28,9 @@ private:
     Hora* _hora;
     Categoria* _categoria;
 };
+
+bool maior(Orcamento* orcamento1, Orcamento* orcamento2) {
+    return orcamento1->getValor() > orcamento2->getValor();
+}
 
 #endif

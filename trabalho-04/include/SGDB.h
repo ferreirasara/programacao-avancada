@@ -15,8 +15,8 @@ public:
         // - separador
         // nome da categoria, ou dados do orcamento
         // exemplos
-        // c-Mercado
-        // o-Mercado-04/06/2020-50.78
+        // c-Mercado-500.00
+        // o-Mercado-04/06/2020-13:40-50.78-Descricao
         std::ofstream arquivo("dados.txt", std::ios_base::app);
         arquivo << tipo << "-" << texto << "\n";
     }
@@ -26,8 +26,10 @@ public:
         std::string separador = "-";
         std::string linhaDesejada = tipo + separador + texto;
         std::list<std::string> dados;
+        std::size_t found;
         while (arquivoOld >> linha) {
-            if (linha == linhaDesejada) {
+            found = linha.find(linhaDesejada);
+            if (found!=std::string::npos) {
                 std::string novaLinha = tipo + separador + novoTexto;
                 dados.push_back(novaLinha);
             } else {
@@ -45,9 +47,15 @@ public:
         std::string separador = "-";
         std::string linhaDesejada = tipo + separador + texto;
         std::list<std::string> dados;
+        std::size_t found;
+
+        std::cout << linhaDesejada << std::endl;
         while (arquivoOld >> linha) {
-            if (linha != linhaDesejada) {
-                dados.push_back(linha);
+            if (linha.substr(0, 1) == tipo) {
+                found = linha.find(linhaDesejada);
+                if (found==std::string::npos) {
+                    dados.push_back(linha);
+                }
             }
         }
         std::ofstream arquivo("dados.txt", std::ios_base::out);
